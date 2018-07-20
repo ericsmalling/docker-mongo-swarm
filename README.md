@@ -33,7 +33,7 @@ Removing intermediate container 7e27035f1f8a
  ---> d4962824f7cb
 
 Successfully built d4962824f7cb
-Successfully tagged ericsmalling/mongors:3.4
+Successfully tagged ericsmalling/mongors:3.2
 
 ```
 
@@ -57,10 +57,10 @@ Creating service db_rs1
 $ docker service ls
 
 ID                  NAME                MODE                REPLICAS            IMAGE                      PORTS
-jnbd0m27pfni        db_rs               replicated          0/1                 ericsmalling/mongors:3.4   
-58r9k9pp4el2        db_rs1              replicated          1/1                 mongo:3.4                  
-lb6rnp9icrdt        db_rs2              replicated          1/1                 mongo:3.4                  
-fb0xaw2ftcop        db_rs3              replicated          1/1                 mongo:3.4           
+jnbd0m27pfni        db_rs               replicated          0/1                 ericsmalling/mongors:3.2   
+58r9k9pp4el2        db_rs1              replicated          1/1                 mongo:3.2                  
+lb6rnp9icrdt        db_rs2              replicated          1/1                 mongo:3.2                  
+fb0xaw2ftcop        db_rs3              replicated          1/1                 mongo:3.2           
 ```
 
 *The db_rs service will try to run several times waiting for the other services
@@ -70,8 +70,8 @@ to finish starting.  The last run should succeed, check with the following and t
 $ docker service ps db_rs
 
 ID                  NAME                IMAGE                      NODE                    DESIRED STATE       CURRENT STATE             ERROR                       PORTS
-etwghr495vzn        db_rs.1             ericsmalling/mongors:3.4   linuxkit-025000000001   Shutdown            Complete 42 seconds ago                               
-b0mfdypyqkph         \_ db_rs.1         ericsmalling/mongors:3.4   linuxkit-025000000001   Shutdown            Failed 49 seconds ago     "task: non-zero exit (1)"   
+etwghr495vzn        db_rs.1             ericsmalling/mongors:3.2   linuxkit-025000000001   Shutdown            Complete 42 seconds ago                               
+b0mfdypyqkph         \_ db_rs.1         ericsmalling/mongors:3.2   linuxkit-025000000001   Shutdown            Failed 49 seconds ago     "task: non-zero exit (1)"   
 ```
 
 Additional verification (substitute the correct container name/hash in your environment):
@@ -79,9 +79,9 @@ Additional verification (substitute the correct container name/hash in your envi
 ```
 $ docker exec -it db_rs1.1.iwokdgch5bud3tihaqd6484li mongo
 
-MongoDB shell version v3.4.16
+MongoDB shell version v3.2.16
 connecting to: mongodb://127.0.0.1:27017
-MongoDB server version: 3.4.16
+MongoDB server version: 3.2.16
 Welcome to the MongoDB shell.
 For interactive help, type "help".
 For more comprehensive documentation, see

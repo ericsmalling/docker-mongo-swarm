@@ -1,24 +1,24 @@
 version: '3.3'
 services:
   rs1:
-    image: mongo:3.4
+    image: mongo:3.2
     command: mongod --replSet "rs0"
     networks:
       - mongo
   rs2:
-    image: mongo:3.4
+    image: mongo:3.2
     command: mongod --replSet "rs0"
     networks:
       - mongo
 
   rs3:
-    image: mongo:3.4
+    image: mongo:3.2
     command: mongod --replSet "rs0"
     networks:
       - mongo
 
   rs:
-    image: ericsmalling/mongors:3.4
+    image: ericsmalling/mongors:3.2
     build:
       context: ./mongors
       
