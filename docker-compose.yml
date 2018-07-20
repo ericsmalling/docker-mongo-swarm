@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+  rs1:
+    image: mongo:3.4
+    command: mongod --replSet "rs0"
+    networks:
+      - mongo
+  rs2:
+    image: mongo:3.4
+    command: mongod --replSet "rs0"
+    networks:
+      - mongo
+
+  rs3:
+    image: mongo:3.4
+    command: mongod --replSet "rs0"
+    networks:
+      - mongo
+
+  rs:
+    image: ericsmalling/mongors:3.4
+    build:
+      context: ./mongors
+      
+    networks:
+      - mongo
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 10
+
+networks:
+  mongo:
